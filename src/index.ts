@@ -13,6 +13,7 @@ api.settings.create([
         type: "slider",
         id: "zoom",
         title: "Camera Zoom",
+        description: "Zoom out to see more in edit mode",
         min: 0.3,
         max: 1.5,
         step: 0.1,
@@ -22,12 +23,14 @@ api.settings.create([
         type: "toggle",
         id: "collision",
         title: "Player Collision",
+        description: "Disable to walk through walls & objects in edit mode",
         default: true,
       },
       {
         type: "dropdown",
         id: "speed",
         title: "Player Speed",
+        description: "Adjust how fast you move in edit mode",
         options: [
           { value: "0.25", label: "0.25x" },
           { value: "0.5", label: "0.5x" },
@@ -45,6 +48,8 @@ api.settings.create([
         type: "dropdown",
         id: "snap",
         title: "Grid Snap",
+        description:
+          "When placing props & devices, easily align them using grid snap",
         options: [
           { value: "off", label: "Off" },
           { value: "64", label: "64" },
@@ -66,6 +71,7 @@ api.settings.create([
         type: "dropdown",
         id: "zone",
         title: "Zone Device Display",
+        description: "Set the appearance of devices that use a zone area",
         options: [
           { value: "visible", label: "Visible" },
           { value: "border", label: "Borders Only" },
@@ -77,6 +83,7 @@ api.settings.create([
         type: "toggle",
         id: "memory",
         title: "Memory Bar",
+        description: "Show the memory bar, even if memory is below 75%",
         default: false,
       },
     ],

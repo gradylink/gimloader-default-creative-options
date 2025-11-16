@@ -1,7 +1,7 @@
 # Todo
 
 - [x] Mirror all settings
-- [ ] Mirror descriptions
+- [x] Mirror descriptions
 - [x] Update settings on change
 - [x] Update Settings On Load
 - [x] Support Updating All Settings
