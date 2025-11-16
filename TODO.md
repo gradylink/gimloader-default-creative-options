@@ -8,7 +8,7 @@
   - [x] Gravity
   - [x] Camera Zoom
   - [ ] Player Collision
-  - [ ] Player Speed
+  - [x] Player Speed
   - [x] Grid Snap
   - [x] Show Grid
   - [ ] Zone Device Display

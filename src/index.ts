@@ -113,6 +113,8 @@ api.settings.create([
   },
 ]);
 
+const normalSpeed = 310;
+
 const applySettings = () => {
   if (api.stores == undefined) return;
 
@@ -139,6 +141,11 @@ const applySettings = () => {
 
   api.stores.editing.showMemoryBarAtAllTimes = api.settings.memory;
 
+  api.stores.me.movementSpeed = normalSpeed * parseFloat(api.settings.speed);
+  api.stores.me.editing.preferences.movementSpeed = parseFloat(
+    api.settings.speed,
+  );
+
   if (api.stores.session.mapStyle != "platformer") return;
   api.stores.me.editing.preferences.topDownControlsActive = !api.settings
     .gravity;
@@ -157,4 +164,6 @@ api.settings.listen("removing", applySettings);
 api.settings.listen("editing", applySettings);
 api.settings.listen("blocks", applySettings);
 
-api.net.onLoad(applySettings);
+api.net.onLoad(() => {
+  api.net.room.state.listen("mapSettings", applySettings);
+});

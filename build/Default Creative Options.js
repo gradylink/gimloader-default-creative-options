@@ -121,6 +121,7 @@ api.settings.create([
     ],
   },
 ]);
+var normalSpeed = 310;
 var applySettings = () => {
   if (api.stores == void 0) return;
   if (api.stores.session.amIGameOwner) {
@@ -141,6 +142,10 @@ var applySettings = () => {
   api.stores.me.editing.preferences.showGrid = api.settings.grid;
   api.stores.gui.showingGrid = api.settings.grid;
   api.stores.editing.showMemoryBarAtAllTimes = api.settings.memory;
+  api.stores.me.movementSpeed = normalSpeed * parseFloat(api.settings.speed);
+  api.stores.me.editing.preferences.movementSpeed = parseFloat(
+    api.settings.speed,
+  );
   if (api.stores.session.mapStyle != "platformer") return;
   api.stores.me.editing.preferences.topDownControlsActive = !api.settings
     .gravity;
@@ -157,4 +162,6 @@ api.settings.listen("adding", applySettings);
 api.settings.listen("removing", applySettings);
 api.settings.listen("editing", applySettings);
 api.settings.listen("blocks", applySettings);
-api.net.onLoad(applySettings);
+api.net.onLoad(() => {
+  api.net.room.state.listen("mapSettings", applySettings);
+});
