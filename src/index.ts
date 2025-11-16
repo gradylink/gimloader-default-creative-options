@@ -108,6 +108,8 @@ api.settings.create([
 ]);
 
 const applySettings = () => {
+  if (api.stores == undefined) return;
+
   if (api.stores.session.amIGameOwner) {
     api.stores.session.globalPermissions.adding = api.settings.adding;
     api.stores.session.globalPermissions.removing = api.settings.removing;

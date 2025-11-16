@@ -116,6 +116,7 @@ api.settings.create([
   }
 ]);
 var applySettings = () => {
+  if (api.stores == void 0) return;
   if (api.stores.session.amIGameOwner) {
     api.stores.session.globalPermissions.adding = api.settings.adding;
     api.stores.session.globalPermissions.removing = api.settings.removing;
