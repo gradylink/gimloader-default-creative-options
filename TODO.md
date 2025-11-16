@@ -7,7 +7,7 @@
 - [ ] Support Updating All Settings
   - [x] Gravity
   - [x] Camera Zoom
-  - [ ] Player Collision
+  - [x] Player Collision
   - [x] Player Speed
   - [x] Grid Snap
   - [x] Show Grid

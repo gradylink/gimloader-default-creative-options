@@ -146,6 +146,10 @@ const applySettings = () => {
     api.settings.speed,
   );
 
+  api.net.send("TOGGLE_PHASE", { enabled: !api.settings.collision });
+  api.stores.me.editing.preferences.phase = !api.settings.collision;
+  api.stores.me.phase = !api.settings.collision;
+
   if (api.stores.session.mapStyle != "platformer") return;
   api.stores.me.editing.preferences.topDownControlsActive = !api.settings
     .gravity;
