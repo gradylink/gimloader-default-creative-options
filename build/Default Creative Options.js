@@ -9,6 +9,12 @@
 // src/index.ts
 api.settings.create([
   {
+    type: "toggle",
+    id: "gravity",
+    title: "Gravity",
+    default: true,
+  },
+  {
     type: "group",
     title: "Editing Options",
     settings: [
@@ -135,7 +141,11 @@ var applySettings = () => {
   api.stores.me.editing.preferences.showGrid = api.settings.grid;
   api.stores.gui.showingGrid = api.settings.grid;
   api.stores.editing.showMemoryBarAtAllTimes = api.settings.memory;
+  if (api.stores.session.mapStyle != "platformer") return;
+  api.stores.me.editing.preferences.topDownControlsActive = !api.settings
+    .gravity;
 };
+api.settings.listen("gravity", applySettings);
 api.settings.listen("zoom", applySettings);
 api.settings.listen("collision", applySettings);
 api.settings.listen("speed", applySettings);
