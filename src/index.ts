@@ -108,13 +108,16 @@ api.settings.create([
 ]);
 
 const applySettings = () => {
-  if (!api.stores.session.amIGameOwner) return;
-
-  api.stores.session.globalPermissions.adding = api.settings.adding;
-  api.stores.session.globalPermissions.removing = api.settings.removing;
-  api.stores.session.globalPermissions.editing = api.settings.editing;
-  api.stores.session.globalPermissions.manageCodeGrids = api.settings.blocks;
-  api.net.send("SET_GLOBAL_PERMISSIONS", api.stores.session.globalPermissions);
+  if (api.stores.session.amIGameOwner) {
+    api.stores.session.globalPermissions.adding = api.settings.adding;
+    api.stores.session.globalPermissions.removing = api.settings.removing;
+    api.stores.session.globalPermissions.editing = api.settings.editing;
+    api.stores.session.globalPermissions.manageCodeGrids = api.settings.blocks;
+    api.net.send(
+      "SET_GLOBAL_PERMISSIONS",
+      api.stores.session.globalPermissions,
+    );
+  }
 
   api.stores.me.editing.preferences.cameraZoom = api.settings.zoom;
   api.stores.phaser.mainCharacter.scene.cameraHelper.forceRefresh();
