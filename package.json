@@ -1,6 +1,5 @@
 {
-  "name": "default-creative-options",
-  "version": "1.0.0",
+  "name": "@gradylink/gimloader-plugins",
   "description": "Lets you set default options for when you open a creative map.",
   "type": "module",
   "scripts": {

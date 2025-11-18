@@ -2,11 +2,12 @@
  * @name Default Creative Options
  * @description Lets you set default options for when you open a creative map.
  * @author grady.link
- * @version 1.0.0
+ * @version 1.1.0
+ * @downloadUrl https://raw.githubusercontent.com/gradylink/gimloader-plugins/refs/heads/main/build/plugins/DefaultCreativeOptions.js
  * @gamemode creative
  */
 
-// src/index.ts
+// plugins/DefaultCreativeOptions/src/index.ts
 api.settings.create([
   {
     type: "toggle",
